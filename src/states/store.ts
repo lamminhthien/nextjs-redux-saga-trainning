@@ -3,12 +3,14 @@ import counterSlice from './counter/slice';
 import createSagaMiddleware from 'redux-saga';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 import rootSaga from './saga';
+import postSlice from './posts/slice';
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
-    counter: counterSlice.reducer
+    counter: counterSlice.reducer,
+    posts: postSlice.reducer
   },
   middleware: [sagaMiddleware]
 });
